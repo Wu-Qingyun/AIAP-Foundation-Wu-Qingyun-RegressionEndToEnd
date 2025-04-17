@@ -1,0 +1,112 @@
+2025-04-16 13:38:04,757 - INFO - Data loaded successfully. Shape: (88688, 14)
+2025-04-16 13:38:04,757 - INFO - Checking and converting data types...
+2025-04-16 13:38:04,757 - INFO - 
+Initial data types:
+2025-04-16 13:38:04,757 - INFO - id                       int64
+month                   object
+flat_type               object
+block                   object
+street_name             object
+storey_range            object
+floor_area_sqm         float64
+lease_commence_date      int64
+remaining_lease         object
+resale_price           float64
+town_id                  int64
+flatm_id                 int64
+town_name               object
+flatm_name              object
+dtype: object
+2025-04-16 13:38:04,962 - INFO - 
+Data types after conversion:
+2025-04-16 13:38:04,963 - INFO - id                              int64
+month                  datetime64[ns]
+flat_type                      object
+block                          object
+street_name                    object
+storey_range                   object
+floor_area_sqm                float64
+lease_commence_date             int64
+remaining_lease                 int64
+resale_price                  float64
+town_id                         int64
+flatm_id                        int64
+town_name                      object
+flatm_name                     object
+block_number                    int64
+dtype: object
+2025-04-16 13:38:04,964 - INFO - Checking for duplicate rows...
+2025-04-16 13:38:04,994 - INFO - Number of duplicate rows: 4223
+2025-04-16 13:38:05,032 - INFO - Dropped 4223 duplicate rows. New shape: (84465, 15)
+2025-04-16 13:38:05,033 - INFO - Analyzing missing values...
+2025-04-16 13:38:05,043 - INFO - 
+Missing values analysis:
+2025-04-16 13:38:05,043 - INFO -                      Missing Values  Percentage
+id                                0    0.000000
+month                             0    0.000000
+flat_type                         0    0.000000
+block                             0    0.000000
+street_name                       0    0.000000
+storey_range                      0    0.000000
+floor_area_sqm                    0    0.000000
+lease_commence_date               0    0.000000
+remaining_lease                   0    0.000000
+resale_price                      0    0.000000
+town_id                           0    0.000000
+flatm_id                          0    0.000000
+town_name                       741    0.877286
+flatm_name                      488    0.577754
+block_number                      0    0.000000
+2025-04-16 13:38:05,082 - INFO - Missing values handled using mode for categorical and median for numerical columns
+2025-04-16 13:38:05,082 - INFO - Computing detailed statistics...
+2025-04-16 13:38:05,112 - INFO - 
+Detailed statistics:
+2025-04-16 13:38:05,112 - INFO -                        count           mean    median      mode  \
+id                   84465.0   42233.000000   42233.0       1.0   
+floor_area_sqm       84465.0      97.518221      96.0      67.0   
+lease_commence_date  84465.0    1593.846966    1988.0    1985.0   
+remaining_lease      84465.0      73.998911      73.0      68.0   
+resale_price         84465.0  438810.970117  408000.0  380000.0   
+town_id              84465.0      14.626851      15.0      14.0   
+flatm_id             84465.0       8.886616       8.0       8.0   
+block_number         84465.0     356.834914     308.0       1.0   
+
+                               std  skewness  kurtosis       min        max  
+id                    24383.089581  0.000000 -1.200000       1.0    84465.0  
+floor_area_sqm           24.203556  0.276370 -0.138366      31.0      280.0  
+lease_commence_date    1195.456328 -2.666436  5.111073   -2016.0     2016.0  
+remaining_lease          11.688060  0.065987 -0.886591      46.0       97.0  
+resale_price         146782.213376  1.212851  1.516941  160000.0  1200000.0  
+town_id                   8.032854 -0.228601 -1.244820       1.0       26.0  
+flatm_id                  3.905763  0.681849 -0.244251       1.0       21.0  
+block_number            252.301700  0.478864 -0.766702       1.0      990.0  
+2025-04-16 13:38:05,116 - INFO - Identifying outliers...
+2025-04-16 13:38:05,148 - INFO - 
+Outlier analysis:
+2025-04-16 13:38:05,148 - INFO -                      IQR_outliers_count  Zscore_outliers_count  \
+id                                  0.0                    0.0   
+floor_area_sqm                    269.0                  238.0   
+lease_commence_date              8446.0                 4139.0   
+remaining_lease                     0.0                    0.0   
+resale_price                     3550.0                 1150.0   
+town_id                             0.0                    0.0   
+flatm_id                            0.0                  110.0   
+block_number                        0.0                    0.0   
+
+                     IQR_outliers_percentage  Zscore_outliers_percentage  
+id                                  0.000000                    0.000000  
+floor_area_sqm                      0.318475                    0.281774  
+lease_commence_date                 9.999408                    4.900255  
+remaining_lease                     0.000000                    0.000000  
+resale_price                        4.202924                    1.361511  
+town_id                             0.000000                    0.000000  
+flatm_id                            0.000000                    0.130231  
+block_number                        0.000000                    0.000000  
+2025-04-16 13:38:05,151 - INFO - Analyzing distributions...
+2025-04-16 13:38:05,157 - INFO - 
+Skewed features (|skewness| > 1):
+2025-04-16 13:38:05,157 - INFO - {'lease_commence_date': -2.666436130978529, 'resale_price': 1.2128512245958496}
+2025-04-16 13:38:05,158 - INFO - Applying log transformation to skewed features...
+2025-04-16 13:38:05,166 - INFO - Analyzing feature relationships...
+2025-04-16 13:38:05,459 - INFO - Correlation heatmap saved as 'correlation_heatmap.png'
+2025-04-16 13:38:05,459 - INFO - EDA completed successfully!
